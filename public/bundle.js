@@ -27261,9 +27261,18 @@
 
 	var Examples = function Examples() {
 	  return React.createElement(
-	    'h2',
+	    'div',
 	    null,
-	    'These are the Examples!'
+	    React.createElement(
+	      'h2',
+	      null,
+	      'Exmpel Sidan'
+	    ),
+	    React.createElement(
+	      'p',
+	      null,
+	      'H\xE4r listas n\xE5gra exempel senare.'
+	    )
 	  );
 	};
 

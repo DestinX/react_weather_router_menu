@@ -8,6 +8,13 @@ var React = require('react');
 //   }
 // });
 
-var Examples = () => {return <h2>These are the Examples!</h2>};
+var Examples = () => {
+  return (
+    <div>
+      <h2>Exmpel Sidan</h2>
+      <p>Här listas några exempel senare.</p>
+    </div>
+  )
+};
 
 module.exports = Examples;
