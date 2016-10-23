@@ -2,6 +2,8 @@ var express = require('express');
 
 // Create Server App
 var app = express();
+
+// Hämta Heroku port vid uppladdning
 const PORT = process.env.PORT || 3000;
 
 // Används för att kunna push till heroku
