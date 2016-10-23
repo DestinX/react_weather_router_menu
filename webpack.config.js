@@ -30,5 +30,5 @@ module.exports = {
       }
     ]
   }
-  // , devtool: 'source-map' // Snyggare kod (som orginal) vid debugger;
+  // , devtool: 'source-map' // Snyggare kod (som orginal) - skriv: debugger;
 };
