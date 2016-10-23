@@ -27263,7 +27263,7 @@
 	  return React.createElement(
 	    'h2',
 	    null,
-	    'These are the Examples.'
+	    'These are the Examples!'
 	  );
 	};
 
