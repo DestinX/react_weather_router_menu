@@ -13,7 +13,10 @@ var React = require('react');
 // Passar att göra på react funktioner som endast har en render funktion
 var About = () => {
   return (
-    <h2>About Component</h2>
+    <div>
+      <h2>About</h2>
+      <p>The about page. Just to show off.</p>
+    </div>
   );
 };
 
