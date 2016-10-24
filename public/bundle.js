@@ -27266,7 +27266,7 @@
 	    React.createElement(
 	      'h2',
 	      null,
-	      'Exmpel Sidan'
+	      'Examples'
 	    ),
 	    React.createElement(
 	      'p',

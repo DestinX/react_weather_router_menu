@@ -11,7 +11,7 @@ var React = require('react');
 var Examples = () => {
   return (
     <div>
-      <h2>Exmpel Sidan</h2>
+      <h2>Examples</h2>
       <p>Här listas några exempel senare.</p>
     </div>
   )
