@@ -27235,9 +27235,18 @@
 	// Passar att göra på react funktioner som endast har en render funktion
 	var About = function About() {
 	  return React.createElement(
-	    'h2',
+	    'div',
 	    null,
-	    'About Component'
+	    React.createElement(
+	      'h2',
+	      null,
+	      'About'
+	    ),
+	    React.createElement(
+	      'p',
+	      null,
+	      'The about page. Just to show off.'
+	    )
 	  );
 	};
 
