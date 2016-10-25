@@ -25475,114 +25475,117 @@
 	var Link = _require.Link;
 	var IndexLink = _require.IndexLink;
 
-	// var Nav = React.createClass({
-	//   render: function() {
-	//     var style = {
-	//       fontWeight: 'bold',
-	//       color: '#9C27B0',
-	//       fontSize: '18px'
-	//     };
-	//
-	//     return (
-	//       <div>
-	//         <h2>This iz Navigation</h2>
-	//         <IndexLink to="/" activeClassName="active" activeStyle={style}>Get Weather</IndexLink>
-	//         <IndexLink to="/about" activeClassName="active" activeStyle={style}> About</IndexLink>
-	//         <IndexLink to="/examples" activeClassName="active" activeStyle={style}> Examples</IndexLink>
-	//       </div>
-	//     );
-	//   }
-	// });
 
-	var Nav = function Nav() {
-	  var style = {
-	    // fontWeight: 'bold',
-	    color: '#9C27B0',
-	    backgroundColor: '#ececec'
-	  };
+	var Nav = React.createClass({
+	  displayName: 'Nav',
 
-	  return React.createElement(
-	    'div',
-	    null,
-	    React.createElement(
-	      'nav',
-	      { className: 'navbar navbar-default navbar-fixed-top' },
+	  onSearch: function onSearch(e) {
+	    e.preventDefault();
+	    alert(this.refs.navsearch.value);
+	  },
+	  render: function render() {
+	    var style = {
+	      // fontWeight: 'bold',
+	      color: '#9C27B0',
+	      backgroundColor: '#ececec'
+	    };
+	    return React.createElement(
+	      'div',
+	      null,
 	      React.createElement(
-	        'div',
-	        { className: 'container-fluid' },
+	        'nav',
+	        { className: 'navbar navbar-default navbar-fixed-top' },
 	        React.createElement(
 	          'div',
-	          { className: 'navbar-header' },
+	          { className: 'container-fluid' },
 	          React.createElement(
-	            'button',
-	            { type: 'button', className: 'navbar-toggle collapsed', 'data-toggle': 'collapse', 'data-target': '#bs-example-navbar-collapse-1', 'aria-expanded': 'false' },
+	            'div',
+	            { className: 'navbar-header' },
 	            React.createElement(
-	              'span',
-	              { className: 'sr-only' },
-	              'Toggle navigation'
-	            ),
-	            React.createElement('span', { className: 'icon-bar' }),
-	            React.createElement('span', { className: 'icon-bar' }),
-	            React.createElement('span', { className: 'icon-bar' })
-	          ),
-	          React.createElement(
-	            'a',
-	            { className: 'navbar-brand', href: '#' },
-	            'Get Location Weather'
-	          )
-	        ),
-	        React.createElement(
-	          'div',
-	          { className: 'collapse navbar-collapse', id: 'bs-example-navbar-collapse-1' },
-	          React.createElement(
-	            'ul',
-	            { className: 'nav navbar-nav' },
-	            React.createElement(
-	              'li',
-	              null,
+	              'button',
+	              { type: 'button', className: 'navbar-toggle collapsed', 'data-toggle': 'collapse', 'data-target': '#bs-example-navbar-collapse-1', 'aria-expanded': 'false' },
 	              React.createElement(
-	                IndexLink,
-	                { to: '/', activeClassName: 'active', activeStyle: style },
-	                'Get Weather'
-	              )
+	                'span',
+	                { className: 'sr-only' },
+	                'Toggle navigation'
+	              ),
+	              React.createElement('span', { className: 'icon-bar' }),
+	              React.createElement('span', { className: 'icon-bar' }),
+	              React.createElement('span', { className: 'icon-bar' })
 	            ),
 	            React.createElement(
-	              'li',
-	              null,
-	              React.createElement(
-	                IndexLink,
-	                { to: '/about', activeClassName: 'active', activeStyle: style },
-	                ' About'
-	              )
-	            ),
-	            React.createElement(
-	              'li',
-	              null,
-	              React.createElement(
-	                IndexLink,
-	                { to: '/examples', activeClassName: 'active', activeStyle: style },
-	                ' Examples'
-	              )
+	              'a',
+	              { className: 'navbar-brand', href: '#' },
+	              'Get Location Weather'
 	            )
 	          ),
 	          React.createElement(
-	            'ul',
-	            { className: 'nav navbar-nav navbar-right' },
+	            'div',
+	            { className: 'collapse navbar-collapse', id: 'bs-example-navbar-collapse-1' },
 	            React.createElement(
-	              'li',
-	              null,
+	              'ul',
+	              { className: 'nav navbar-nav' },
 	              React.createElement(
-	                'a',
-	                { href: '#' },
-	                '#'
+	                'li',
+	                null,
+	                React.createElement(
+	                  IndexLink,
+	                  { to: '/', activeClassName: 'active', activeStyle: style },
+	                  'Get Weather'
+	                )
+	              ),
+	              React.createElement(
+	                'li',
+	                null,
+	                React.createElement(
+	                  IndexLink,
+	                  { to: '/about', activeClassName: 'active', activeStyle: style },
+	                  ' About'
+	                )
+	              ),
+	              React.createElement(
+	                'li',
+	                null,
+	                React.createElement(
+	                  IndexLink,
+	                  { to: '/examples', activeClassName: 'active', activeStyle: style },
+	                  ' Examples'
+	                )
+	              )
+	            ),
+	            React.createElement(
+	              'form',
+	              { className: 'navbar-form navbar-left', onSubmit: this.onSearch },
+	              React.createElement(
+	                'div',
+	                { className: 'form-group' },
+	                React.createElement('input', { type: 'text', className: 'form-control', placeholder: 'Search', ref: 'navsearch' })
+	              ),
+	              React.createElement(
+	                'button',
+	                { type: 'submit', className: 'btn btn-default' },
+	                'Submit'
+	              )
+	            ),
+	            React.createElement(
+	              'ul',
+	              { className: 'nav navbar-nav navbar-right' },
+	              React.createElement(
+	                'li',
+	                null,
+	                React.createElement(
+	                  'a',
+	                  { href: '#' },
+	                  '#'
+	                )
 	              )
 	            )
 	          )
 	        )
 	      )
-	    )
-	  );
-	};
+	    );
+	  }
+	});
 
 	module.exports = Nav;
 
