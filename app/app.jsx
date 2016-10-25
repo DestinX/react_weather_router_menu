@@ -1,20 +1,17 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-
-// ES5
-// var Route = require('react-router').Route;
-
-// ES6
 var {Route, Router, IndexRoute, hashHistory} = require('react-router');
-// var obj = {
-//   name: 'Joe'
-// }
-// var {name} = obj; // name = obj.name;
-
+// var obj = { name: 'Joe' }
+// var {name} = obj; --> name = obj.name;
 var Main = require('Main');
 var Weather = require('Weather');
 var About = require('About');
 var Examples = require('Examples');
+// var $ = require('jquery');
+
+// Load bootstrap
+require('bootstrap/dist/css/bootstrap.min.css');
+// $document.bootstrap();
 
 ReactDOM.render(
   <Router history={hashHistory}>
