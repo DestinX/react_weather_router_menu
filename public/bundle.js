@@ -25452,11 +25452,18 @@
 	    null,
 	    React.createElement(Nav, null),
 	    React.createElement(
-	      'h2',
-	      null,
-	      'Main Component'
-	    ),
-	    props.children
+	      'div',
+	      { className: 'container' },
+	      React.createElement(
+	        'div',
+	        { className: 'row' },
+	        React.createElement(
+	          'div',
+	          { className: 'col-md-12' },
+	          props.children
+	        )
+	      )
+	    )
 	  );
 	};
 
@@ -27315,6 +27322,10 @@
 
 	var React = __webpack_require__(1);
 
+	var _require = __webpack_require__(159);
+
+	var Link = _require.Link;
+
 	// var Examples = React.createClass({
 	//   render: function() {
 	//     return (
@@ -27327,6 +27338,8 @@
 	  return React.createElement(
 	    'div',
 	    null,
+	    React.createElement('br', null),
+	    React.createElement('br', null),
 	    React.createElement(
 	      'h2',
 	      null,
@@ -27335,7 +27348,20 @@
 	    React.createElement(
 	      'p',
 	      null,
-	      'H\xE4r listas n\xE5gra exempel senare.'
+	      'Here are some examples to try out.'
+	    ),
+	    React.createElement(
+	      'ol',
+	      null,
+	      React.createElement(
+	        'li',
+	        null,
+	        React.createElement(
+	          Link,
+	          { to: '/?location=Rio' },
+	          'Rio, Brazil'
+	        )
+	      )
 	    )
 	  );
 	};

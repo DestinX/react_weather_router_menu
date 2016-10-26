@@ -18,9 +18,15 @@ var Main = (props) => {
   return (
     <div>
       <Nav />
-      <h2>Main Component</h2>
       { /* Kommer från app.jsx */ }
-      {props.children}
+      <div className="container">
+        <div className="row">
+          <div className="col-md-12">
+            {props.children}
+          </div>
+        </div>
+      </div>
+
     </div>
   );
 };
