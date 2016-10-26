@@ -4,7 +4,11 @@ var {Link, IndexLink} = require('react-router');
 var Nav = React.createClass({
   onSearch: function(e) {
     e.preventDefault();
-    alert(this.refs.navsearch.value);
+    var encodedSearch = encodeURIComponent(this.refs.navsearch.value); // encode spaces etc for the browser url bar
+    if(encodedSearch.length > 0) {
+      this.refs.navsearch.value = '';
+      window.location.hash = '#/?search=' + encodedSearch;
+    }
   },
   render: function() {
     var style = {
@@ -31,14 +35,13 @@ var Nav = React.createClass({
                 <li><IndexLink to="/about" activeClassName="active" activeStyle={style}> About</IndexLink></li>
                 <li><IndexLink to="/examples" activeClassName="active" activeStyle={style}> Examples</IndexLink></li>
               </ul>
-              <form className="navbar-form navbar-left" onSubmit={this.onSearch}>
-                <div className="form-group">
-                  <input type="text" className="form-control" placeholder="Search" ref="navsearch" />
-                </div>
-                <button type="submit" className="btn btn-default">Submit</button>
-              </form>
               <ul className="nav navbar-nav navbar-right">
-                <li><a href="#">#</a></li>
+                <form className="navbar-form navbar-left" onSubmit={this.onSearch}>
+                  <div className="form-group">
+                    <input type="text" className="form-control" placeholder="Search" ref="navsearch" />
+                  </div>
+                  <button type="submit" className="btn btn-default">Search</button>
+                </form>
               </ul>
             </div>
           </div>

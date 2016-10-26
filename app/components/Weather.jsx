@@ -15,7 +15,9 @@ var Weather = React.createClass({
   handleSearch: function(location) {
     this.setState({
       isLoading: true,
-      errModalMessage: undefined
+      errModalMessage: undefined,
+      location: undefined,
+      temp: undefined
     });
 
     // ANVÄNDER openWeatherMap filen för en promise och hämtar data med axios
@@ -53,6 +55,21 @@ var Weather = React.createClass({
     //   }.bind(this)
     // });
 
+  },
+  componentDidMount: function() {
+    var location = this.props.location.query.search; // From examples page
+    if(location && location.length > 0) {
+      this.handleSearch(location);
+      window.location.hash = '#/'; // Change the url in browser to root
+    }
+  },
+  // Only needed because if navbar-search while on weather-page the page does not update itself
+  componentWillReceiveProps: function(newProps) {
+    var location = newProps.location.query.search; // From navbar search
+    if(location && location.length > 0) {
+      this.handleSearch(location);
+      window.location.hash = '#/'; // Change the url in browser to root
+    }
   },
   render: function() {
     var {isLoading, temp, location, errModalMessage} = this.state;

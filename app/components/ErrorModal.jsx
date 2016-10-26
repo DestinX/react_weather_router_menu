@@ -7,6 +7,7 @@ var ErrorModal = React.createClass({
     }
   },
   propTypes: {
+    // More on propTypes --> https://facebook.github.io/react/docs/typechecking-with-proptypes.html
     title: React.PropTypes.string,
     message: React.PropTypes.string.isRequired
     // message: React.PropTypes.any.isRequired
