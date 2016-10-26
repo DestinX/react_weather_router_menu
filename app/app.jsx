@@ -11,6 +11,9 @@ window.$ = window.jQuery = require("jquery");
 require('bootstrap/dist/css/bootstrap.min.css');
 require('bootstrap/dist/js/bootstrap.min.js');
 
+// Custom css
+require('app/styles/app.css');
+
 ReactDOM.render(
   <Router history={hashHistory}>
     <Route path = "/" component={Main}>

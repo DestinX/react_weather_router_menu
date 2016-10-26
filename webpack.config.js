@@ -57,7 +57,7 @@ module.exports = {
       // { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=image/svg+xml' }
       {
           test: /\.(svg|eot|woff|woff2|ttf)$/,
-          loader: 'url-loader?limit=10000&name=fonts/[name].[ext]',
+          loader: 'url-loader?limit=10000&name=app/styles/bootstrap_fonts/[name].[ext]',
           include: [
               __dirname
           ]

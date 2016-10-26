@@ -76,7 +76,7 @@ var Weather = React.createClass({
       <div>
         <br/>
         <br/>
-        <h1>See the weather!</h1>
+        <h1 className="muzzo">See the weather!</h1>
         <WeatherForm onSearch={this.handleSearch} />
         {renderLoadingMessage()}
         {renderErrorMessage()}
