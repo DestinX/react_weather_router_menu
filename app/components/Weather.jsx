@@ -9,13 +9,13 @@ var Weather = React.createClass({
   getInitialState: function() {
     return{
       isLoading: false,
-      errModalMessage: ''
+      errModalMessage: undefined
     }
   },
   handleSearch: function(location) {
     this.setState({
       isLoading: true,
-      errModalMessage: ''
+      errModalMessage: undefined
     });
 
     // ANVÄNDER openWeatherMap filen för en promise och hämtar data med axios
@@ -43,21 +43,20 @@ var Weather = React.createClass({
     //   success: function(data) {
     //     this.setState({
     //       location: location,
-    //       temp: data.list[0].main.temp,
+    //       temp: (data.count === 0) ? 0 : data.list[0].main.temp,
     //       isLoading: false
     //     });
     //   }.bind(this),
     //   error: function(xhr, status, err) {
     //     console.error(requestUrl, status, xhr, err.toString()); //bättre error!!!
     //     this.setState({isLoading: false, errModalMessage: err});
-    //     // debugger;
     //   }.bind(this)
     // });
 
   },
   render: function() {
     var {isLoading, temp, location, errModalMessage} = this.state;
-    var that = this;
+    // var that = this;
 
     function renderLoadingMessage() {
       if(isLoading) {
@@ -68,8 +67,8 @@ var Weather = React.createClass({
     }
 
     function renderErrorMessage() {
-      if(that.state.errModalMessage.length > 0) {
-        return <ErrorModal error={errModalMessage} />
+      if(typeof errModalMessage === 'string') {
+        return <ErrorModal message={errModalMessage} />
       }
     }
 

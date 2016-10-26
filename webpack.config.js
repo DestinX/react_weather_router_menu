@@ -14,8 +14,8 @@ module.exports = {
   // // $ and jQuery tells react to interpret $ for jquery so jquery doesnt need to be loaded on each component
   // plugins: {
   //   // new webpack.ProvidePlugin({
-  //   //   $: 'jQuery',
-  //   //   jQuery: 'jquery'
+  //   //   '$': 'jQuery',
+  //   //   'jQuery': 'jquery'
   //   // })
   // },
   output: {

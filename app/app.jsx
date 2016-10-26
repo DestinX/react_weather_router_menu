@@ -5,10 +5,9 @@ var Main = require('Main');
 var Weather = require('Weather');
 var About = require('About');
 var Examples = require('Examples');
-// var $ = require('jquery');
-// var jQuery = require('jquery');
 
-// Load bootstrap
+// Load jquery and bootstrap
+window.$ = window.jQuery = require("jquery");
 require('bootstrap/dist/css/bootstrap.min.css');
 require('bootstrap/dist/js/bootstrap.min.js');
 
