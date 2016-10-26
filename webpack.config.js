@@ -3,8 +3,8 @@
 module.exports = {
   entry: './app/app.jsx', // To only run the app.
   // entry: [
-  //   'script!jquery/dist/jquery.min.js',
-  //   'script!bootstrap/dist/js/bootstrap.min.js',
+  //   'jquery/dist/jquery.min.js',
+  //   'bootstrap/dist/js/bootstrap.min.js',
   //   // 'foundation-sites/dist/foundation.min.js',
   //   './app/app.jsx'
   // ],
@@ -14,8 +14,8 @@ module.exports = {
   // // $ and jQuery tells react to interpret $ for jquery so jquery doesnt need to be loaded on each component
   // plugins: {
   //   // new webpack.ProvidePlugin({
-  //   //   '$': 'jQuery',
-  //   //   'jQuery': 'jquery'
+  //   //   $: 'jQuery',
+  //   //   jQuery: 'jquery'
   //   // })
   // },
   output: {
@@ -32,7 +32,8 @@ module.exports = {
       WeatherMessage: 'app/components/WeatherMessage.jsx',
       About: 'app/components/About.jsx',
       Examples: 'app/components/Examples.jsx',
-      openWeatherMap: 'app/api/openWeatherMap.jsx'
+      openWeatherMap: 'app/api/openWeatherMap.jsx',
+      ErrorModal: 'app/components/ErrorModal.jsx'
     },
     extensions: ['', '.js', '.jsx'] // Leta efter dessa extensions vid körning av webpack
   },
@@ -50,10 +51,17 @@ module.exports = {
       { test: /\.css$/, loader: "style-loader!css-loader" },
       { test: /\.png$/, loader: "url-loader?limit=100000" },
       { test: /\.jpg$/, loader: "file-loader" },
-      { test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=application/font-woff' },
-      { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=application/octet-stream' },
-      { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: 'file' },
-      { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=image/svg+xml' }
+      // { test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=application/font-woff' },
+      // { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=application/octet-stream' },
+      // { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: 'file' },
+      // { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=image/svg+xml' }
+      {
+          test: /\.(svg|eot|woff|woff2|ttf)$/,
+          loader: 'url-loader?limit=10000&name=fonts/[name].[ext]',
+          include: [
+              __dirname
+          ]
+      }
     ]
   }
   // , devtool: 'source-map' // Snyggare kod (som orginal) - skriv: debugger;

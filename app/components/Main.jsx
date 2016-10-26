@@ -21,9 +21,11 @@ var Main = (props) => {
       { /* Kommer från app.jsx */ }
       <div className="container">
         <div className="row">
-          <div className="col-md-12">
+          <div className="col-md-3"></div>
+          <div className="col-md-6 text-center">
             {props.children}
           </div>
+          <div className="col-md-3"></div>
         </div>
       </div>
 

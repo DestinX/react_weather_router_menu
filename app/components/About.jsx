@@ -14,8 +14,10 @@ var React = require('react');
 var About = () => {
   return (
     <div>
-      <h2>About</h2>
-      <p>The about page. Just to show off.</p>
+      <br/>
+      <br/>
+      <h1 className="centered">About</h1>
+      <p>This is an weather fetching application built on rect.</p>
     </div>
   );
 };

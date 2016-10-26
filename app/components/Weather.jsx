@@ -2,16 +2,21 @@ var React = require('react');
 var WeatherForm = require('WeatherForm');
 var WeatherMessage = require('WeatherMessage');
 var openWeatherMap = require('openWeatherMap');
+var ErrorModal = require('ErrorModal');
 // var $ = require('jquery');
 
 var Weather = React.createClass({
   getInitialState: function() {
     return{
-      isLoading: false
+      isLoading: false,
+      errModalMessage: ''
     }
   },
   handleSearch: function(location) {
-    this.setState({isLoading: true});
+    this.setState({
+      isLoading: true,
+      errModalMessage: ''
+    });
 
     // ANVÄNDER openWeatherMap filen för en promise och hämtar data med axios
     var that = this;
@@ -23,8 +28,11 @@ var Weather = React.createClass({
           isLoading: false
         });
     }, function(err) {
-      that.setState({isLoading: false});
-      alert(err);
+      that.setState({
+        isLoading: false,
+        errModalMessage: err.message
+      });
+      // alert(err);
     });
 
     // const OPEN_WEATHER_MAP_URL = 'http://api.openweathermap.org/data/2.5/find?units=metric&appid=d17ac8a90e7190bfd3ab87a81607b2da';
@@ -41,13 +49,15 @@ var Weather = React.createClass({
     //   }.bind(this),
     //   error: function(xhr, status, err) {
     //     console.error(requestUrl, status, xhr, err.toString()); //bättre error!!!
-    //     this.setState({isLoading: false});
+    //     this.setState({isLoading: false, errModalMessage: err});
+    //     // debugger;
     //   }.bind(this)
     // });
 
   },
   render: function() {
-    var {isLoading, temp, location} = this.state;
+    var {isLoading, temp, location, errModalMessage} = this.state;
+    var that = this;
 
     function renderLoadingMessage() {
       if(isLoading) {
@@ -57,11 +67,20 @@ var Weather = React.createClass({
       }
     }
 
+    function renderErrorMessage() {
+      if(that.state.errModalMessage.length > 0) {
+        return <ErrorModal error={errModalMessage} />
+      }
+    }
+
     return (
       <div>
-        <h3>Se Vädret</h3>
+        <br/>
+        <br/>
+        <h1>See the weather!</h1>
         <WeatherForm onSearch={this.handleSearch} />
         {renderLoadingMessage()}
+        {renderErrorMessage()}
       </div>
     );
   }
